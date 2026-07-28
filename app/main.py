@@ -1,28 +1,14 @@
 import customtkinter as ctk
 
-# Configuración inicial
-ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("blue")
+from ui.home_view import crear_home
 
 # Crear ventana principal
 app = ctk.CTk()
 app.title("Calcu_Nomina")
 app.geometry("1000x700")
 
-# Título
-titulo = ctk.CTkLabel(
-    app,
-    text="Calcu_Nomina",
-    font=("Arial", 28, "bold")
-)
-titulo.pack(pady=30)
-
-subtitulo = ctk.CTkLabel(
-    app,
-    text="Sistema de Gestión y Validación de Nómina",
-    font=("Arial", 16)
-)
-subtitulo.pack()
+# Crear pantalla principal
+crear_home(app)
 
 # Ejecutar aplicación
 app.mainloop()
