@@ -52,7 +52,7 @@ def crear_home(app):
 
     subtitulo = ctk.CTkLabel(
         contenido,
-        text="Sistema Inteligente de Gestión y Validación de Nómina",
+        text="Sistema de Gestión y Validación de Nómina",
         font=("Arial", 16)
     )
 
