@@ -16,18 +16,49 @@ def crear_home(app):
     corner_radius=0,
     fg_color="#1f6aa5"
 )
-
     sidebar.pack(side="left", fill="y")
     sidebar.pack_propagate(False)
+    
+
     menu = ctk.CTkLabel(
     sidebar,
-    text="MENÚ",
+    text="CALCU_NÓMINA",
     font=("Arial", 22, "bold"),
     text_color="white"
 )
 
     menu.pack(pady=30)
+    boton_inicio = ctk.CTkButton(
+        sidebar,
+        text="🏠  Inicio",
+        width=180
+    )
+    boton_inicio.pack(pady=10)
 
+    boton_operarios = ctk.CTkButton(
+    sidebar,
+    text="👤  Operarios",
+    width=180
+)
+
+    boton_operarios.pack(pady=10)
+
+    boton_turnos = ctk.CTkButton(
+    sidebar,
+    text="📅  Turnos",
+    width=180
+)
+
+    boton_turnos.pack(pady=10)
+
+    boton_nomina = ctk.CTkButton(
+    sidebar,
+    text="💰  Nómina",
+    width=180
+)
+
+    boton_nomina.pack(pady=10)
+    
     # ==========================
     # Área principal
     # ==========================
