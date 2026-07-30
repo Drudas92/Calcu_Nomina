@@ -3,6 +3,9 @@ import customtkinter as ctk
 
 def crear_home(app):
 
+    def cambiar_mensaje(texto):
+        mensaje.configure(text=texto)
+
     # Frame principal
     frame_principal = ctk.CTkFrame(app)
     frame_principal.pack(fill="both", expand=True)
@@ -29,16 +32,18 @@ def crear_home(app):
 
     menu.pack(pady=30)
     boton_inicio = ctk.CTkButton(
-        sidebar,
-        text="🏠  Inicio",
-        width=180
+    sidebar,
+    text="🏠  Inicio",
+    width=180,
+    command=lambda: cambiar_mensaje("pantalla de inicio")
     )
     boton_inicio.pack(pady=10)
 
     boton_operarios = ctk.CTkButton(
     sidebar,
     text="👤  Operarios",
-    width=180
+    width=180,
+    command=lambda: cambiar_mensaje("módulo de operarios")
 )
 
     boton_operarios.pack(pady=10)
@@ -46,7 +51,8 @@ def crear_home(app):
     boton_turnos = ctk.CTkButton(
     sidebar,
     text="📅  Turnos",
-    width=180
+    width=180,
+    command=lambda: cambiar_mensaje("módulo de turnos")
 )
 
     boton_turnos.pack(pady=10)
@@ -54,7 +60,8 @@ def crear_home(app):
     boton_nomina = ctk.CTkButton(
     sidebar,
     text="💰  Nómina",
-    width=180
+    width=180,
+    command=lambda: cambiar_mensaje("módulo de nómina")
 )
 
     boton_nomina.pack(pady=10)
@@ -88,3 +95,11 @@ def crear_home(app):
     )
 
     subtitulo.pack()
+
+    mensaje = ctk.CTkLabel(
+        contenido,
+        text="Seleccione una opcion del menú",
+        font=("Arial", 15)
+    )
+
+    mensaje.pack(pady=30)
