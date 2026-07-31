@@ -1,11 +1,25 @@
 import customtkinter as ctk
-from app.ui.inicio_view import crear_inicio
+
+from ui.inicio_view import crear_inicio
+from ui.operarios_view import crear_operarios
 
 
 def crear_home(app):
 
+    def limpiar_contenido():
+        for widget in contenido.winfo_children():
+            widget.destroy()
+
     def cambiar_mensaje(texto):
         mensaje.configure(text=texto)
+
+    def mostrar_inicio():
+        limpiar_contenido()
+        crear_inicio(contenido)
+
+    def mostrar_operarios():
+        limpiar_contenido()
+        crear_operarios(contenido)
 
     # Frame principal
     frame_principal = ctk.CTkFrame(app)
@@ -36,7 +50,7 @@ def crear_home(app):
     sidebar,
     text="🏠  Inicio",
     width=180,
-    command=lambda: cambiar_mensaje("pantalla de inicio")
+    command=mostrar_inicio
     )
     boton_inicio.pack(pady=10)
 
@@ -44,7 +58,7 @@ def crear_home(app):
     sidebar,
     text="👤  Operarios",
     width=180,
-    command=lambda: cambiar_mensaje("módulo de operarios")
+    command=mostrar_operarios
 )
 
     boton_operarios.pack(pady=10)
@@ -77,4 +91,4 @@ def crear_home(app):
 
     contenido.pack(side="right", fill="both", expand=True)
 
-    
+    mensaje = crear_inicio(contenido)
