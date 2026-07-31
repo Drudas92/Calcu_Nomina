@@ -2,6 +2,7 @@ import customtkinter as ctk
 
 from ui.inicio_view import crear_inicio
 from ui.operarios_view import crear_operarios
+from ui.turnos_view import crear_turnos
 
 
 def crear_home(app):
@@ -20,6 +21,10 @@ def crear_home(app):
     def mostrar_operarios():
         limpiar_contenido()
         crear_operarios(contenido)
+
+    def mostrar_turnos():
+        limpiar_contenido()
+        crear_turnos(contenido)
 
     # Frame principal
     frame_principal = ctk.CTkFrame(app)
@@ -67,7 +72,7 @@ def crear_home(app):
     sidebar,
     text="📅  Turnos",
     width=180,
-    command=lambda: cambiar_mensaje("módulo de turnos")
+    command=mostrar_turnos
 )
 
     boton_turnos.pack(pady=10)
