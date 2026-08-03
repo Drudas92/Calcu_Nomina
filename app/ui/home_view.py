@@ -3,16 +3,13 @@ import customtkinter as ctk
 from ui.inicio_view import crear_inicio
 from ui.operarios_view import crear_operarios
 from ui.turnos_view import crear_turnos
-
+from ui.nomina_view import crear_nomina
 
 def crear_home(app):
 
     def limpiar_contenido():
         for widget in contenido.winfo_children():
             widget.destroy()
-
-    def cambiar_mensaje(texto):
-        mensaje.configure(text=texto)
 
     def mostrar_inicio():
         limpiar_contenido()
@@ -25,6 +22,10 @@ def crear_home(app):
     def mostrar_turnos():
         limpiar_contenido()
         crear_turnos(contenido)
+
+    def mostrar_nomina():
+        limpiar_contenido()
+        crear_nomina(contenido)
 
     # Frame principal
     frame_principal = ctk.CTkFrame(app)
@@ -65,8 +66,8 @@ def crear_home(app):
     width=180,
     command=mostrar_operarios
 )
-
     boton_operarios.pack(pady=10)
+
 
     boton_turnos = ctk.CTkButton(
     sidebar,
@@ -74,16 +75,15 @@ def crear_home(app):
     width=180,
     command=mostrar_turnos
 )
-
     boton_turnos.pack(pady=10)
+
 
     boton_nomina = ctk.CTkButton(
     sidebar,
     text="💰  Nómina",
     width=180,
-    command=lambda: cambiar_mensaje("módulo de nómina")
+    command=mostrar_nomina
 )
-
     boton_nomina.pack(pady=10)
     
     # ==========================
@@ -96,4 +96,4 @@ def crear_home(app):
 
     contenido.pack(side="right", fill="both", expand=True)
 
-    mensaje = crear_inicio(contenido)
+    crear_inicio(contenido)
