@@ -1,3 +1,5 @@
+from services.operarios_service import guardar_operario
+
 import customtkinter as ctk
 
 
@@ -51,7 +53,7 @@ def crear_operarios(contenido):
     )
     mensaje_guardado.pack(pady=(10, 0))
 
-    def guardar_operario():
+    def guardar_operario_click():
         nombre = entry_nombre.get().strip()
         documento = entry_documento.get().strip()
         cargo = entry_cargo.get().strip()
@@ -63,6 +65,8 @@ def crear_operarios(contenido):
             )
             return
 
+        guardar_operario(nombre, documento, cargo)
+
         mensaje_guardado.configure(
             text=f"Operario guardado: {nombre} ({cargo})",
             text_color="#28a745"
@@ -72,9 +76,10 @@ def crear_operarios(contenido):
         entry_cargo.delete(0, "end")
 
     boton_guardar = ctk.CTkButton(
-        contenido,
-        text="Guardar",
-        width=120,
-        command=guardar_operario
+    contenido,
+    text="Guardar",
+    width=120,
+    command=guardar_operario_click
     )
+    
     boton_guardar.pack(pady=20)

@@ -25,5 +25,3 @@ def crear_inicio(contenido):
     )
 
     mensaje.pack(pady=30)
-
-    return mensaje
