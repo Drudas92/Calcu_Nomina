@@ -1,4 +1,4 @@
-from services.operarios_service import guardar_operario
+from app.services.operarios_service import guardar_operario
 
 import customtkinter as ctk
 

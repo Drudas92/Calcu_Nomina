@@ -1,6 +1,9 @@
 import customtkinter as ctk
 
-from ui.home_view import crear_home
+from app.ui.home_view import crear_home
+from app.database.database import crear_tablas
+
+crear_tablas()
 
 # Crear ventana principal
 app = ctk.CTk()

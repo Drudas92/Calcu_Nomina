@@ -1,9 +1,9 @@
 import customtkinter as ctk
 
-from ui.inicio_view import crear_inicio
-from ui.operarios_view import crear_operarios
-from ui.turnos_view import crear_turnos
-from ui.nomina_view import crear_nomina
+from app.ui.inicio_view import crear_inicio
+from app.ui.operarios_view import crear_operarios
+from app.ui.turnos_view import crear_turnos
+from app.ui.nomina_view import crear_nomina
 
 def crear_home(app):
 
