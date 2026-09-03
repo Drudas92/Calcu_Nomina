@@ -60,6 +60,55 @@ def crear_operarios(contenido):
     mensaje_guardado.pack(pady=(10, 0))
 
     # ==========================
+    # LÓGICA DE GUARDAR (Función interna)
+    # ==========================
+
+    def guardar_operario_click():
+        nombre = entry_nombre.get().strip()
+        documento = entry_documento.get().strip()
+        cargo = entry_cargo.get().strip()
+
+        if not nombre or not documento or not cargo:
+            mensaje_guardado.configure(
+                text="Por favor completa todos los campos.",
+                text_color="#d9534f"
+            )
+            return
+
+        guardado, mensaje = guardar_operario(
+            nombre,
+            documento,
+            cargo
+        )
+
+        if guardado:
+            mensaje_guardado.configure(
+                text=mensaje,
+                text_color="#28a745"
+            )
+
+            entry_nombre.delete(0, "end")
+            entry_documento.delete(0, "end")
+            entry_cargo.delete(0, "end")
+
+            cargar_operarios()
+
+        else:
+            mensaje_guardado.configure(
+                text=mensaje,
+                text_color="#d9534f"
+            )
+
+    # El botón se define AQUÍ, fuera de la función del clic
+    boton_guardar = ctk.CTkButton(
+        contenido,
+        text="Guardar",
+        width=120,
+        command=guardar_operario_click
+    )
+    boton_guardar.pack(pady=10)
+
+    # ==========================
     # TABLA
     # ==========================
 
@@ -101,7 +150,7 @@ def crear_operarios(contenido):
     )
 
     # ==========================
-    # CARGAR OPERARIOS
+    # CARGAR OPERARIOS (Función interna y ejecución)
     # ==========================
 
     def cargar_operarios():
@@ -117,60 +166,5 @@ def crear_operarios(contenido):
                 values=operario
             )
 
-    # ==========================
-    # GUARDAR OPERARIO
-    # ==========================
-
-    def guardar_operario_click():
-        nombre = entry_nombre.get().strip()
-        documento = entry_documento.get().strip()
-        cargo = entry_cargo.get().strip()
-
-        if not nombre or not documento or not cargo:
-            mensaje_guardado.configure(
-                text="Por favor completa todos los campos.",
-                text_color="#d9534f"
-            )
-            return
-
-        try:
-            guardado, mensaje = guardar_operario(
-                nombre,
-                documento,
-                cargo
-            )
-
-            if guardado:
-                mensaje_guardado.configure(
-                    text=f"Operario guardado: {nombre} ({cargo})",
-                    text_color="#28a745"
-                )
-
-                entry_nombre.delete(0, "end")
-                entry_documento.delete(0, "end")
-                entry_cargo.delete(0, "end")
-
-                cargar_operarios()
-
-            else:
-                mensaje_guardado.configure(
-                    text=mensaje,
-                    text_color="#d9534f"
-                )
-
-        except Exception as e:
-            mensaje_guardado.configure(
-                text=f"Error al guardar: {e}",
-                text_color="#d9534f"
-            )
-
-    boton_guardar = ctk.CTkButton(
-        contenido,
-        text="Guardar",
-        width=120,
-        command=guardar_operario_click
-    )
-    boton_guardar.pack(pady=10)
-
-    # Carga la lista inicial de registros al abrir la pantalla
+    # Carga los registros de la BD inmediatamente al construir la vista
     cargar_operarios()
