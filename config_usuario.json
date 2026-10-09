@@ -1,5 +1,5 @@
 {
-    "nombre_empleado": "Diego Alejandro Rudas",
+    "nombre_empleado": "Diego Rudas",
     "cargo": "Operador de Monitoreo",
     "salario_base": 2100000,
     "horas_mes": 210,
@@ -11,8 +11,8 @@
     },
     "factores_recargo": {
         "recargo_nocturno": 0.35,
-        "dom_diurno_nohabitual": 0.90,
-        "dom_diurno_habitual": 1.90,
+        "dom_diurno_nohabitual": 0.9,
+        "dom_diurno_habitual": 1.9,
         "dom_nocturno_nohabitual": 1.25,
         "dom_nocturno_habitual": 2.25
     }
