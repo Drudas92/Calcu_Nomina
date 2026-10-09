@@ -1,0 +1,18 @@
+{
+    "nombre_empleado": "Diego Alejandro Rudas",
+    "salario_base": 2100000,
+    "horas_mes": 210,
+    "bono_asistencia": 50000,
+    "auxilio_transporte_quincenal": 124548,
+    "descuentos_personales": {
+        "credito_denario": 172694,
+        "otros_descuentos": 0
+    },
+    "factores_recargo": {
+        "recargo_nocturno": 0.35,
+        "dom_diurno_nohabitual": 0.9,
+        "dom_diurno_habitual": 1.9,
+        "dom_nocturno_nohabitual": 1.25,
+        "dom_nocturno_habitual": 2.25
+    }
+}
